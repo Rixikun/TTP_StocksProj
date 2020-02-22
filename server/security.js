@@ -1,6 +1,7 @@
 const isAdminMiddleware = (req, res, next) => {
   console.log("inside admin middleware"); //admin doesn't exist yet
   const currUser = req.user;
+  console.log(">>>>>>>>>>>>>", req.user);
   if (currUser && currUser.isAdmin) {
     next();
   } else {

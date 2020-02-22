@@ -13,13 +13,7 @@ const Stock = db.define("stock", {
     type: Sequelize.TEXT
   },
   price: {
-    type: Sequelize.INTEGER,
-    validate: {
-      min: 0
-    },
-    get() {
-      return this.getDataValue("price");
-    }
+    type: Sequelize.INTEGER
   }
 });
 

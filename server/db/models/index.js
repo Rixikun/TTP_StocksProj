@@ -1,8 +1,9 @@
-const User = require("./users");
-const Stock = require("./stocks");
+const User = require("./user");
+const Stock = require("./stock");
+const UserStocks = require("./userStock");
 
-User.hasMany(Stock);
-Stock.belongsToMany(User);
+User.belongsToMany(Stock, { through: UserStocks });
+Stock.belongsToMany(User, { through: UserStocks });
 
 module.exports = {
   User,
