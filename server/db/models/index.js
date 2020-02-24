@@ -1,19 +1,7 @@
 const User = require("./user");
 const Stock = require("./stock");
 const Transaction = require("./transaction");
-
-// Stock.belongsToMany(User, {
-//   through: "transaction",
-//   as: "users",
-//   foreignKey: "stockId",
-//   primaryKey: "userId"
-// });
-// User.belongsToMany(Stock, {
-//   through: "transaction",
-//   as: "stocks",
-//   foreignKey: "userId",
-//   primaryKey: "stockId"
-// });
+const Portfolio = require("./portfolio");
 
 Transaction.belongsTo(User);
 User.hasMany(Transaction);
@@ -24,6 +12,9 @@ User.hasMany(Stock);
 Stock.belongsTo(Transaction);
 Transaction.hasMany(Stock);
 
+User.hasMany(Portfolio);
+Portfolio.belongsTo(User);
+
 // use userId to get transactionIds
 // use transactionIds to get stockIds
 // said stocks will return price, time, ticker, name
@@ -32,5 +23,6 @@ Transaction.hasMany(Stock);
 module.exports = {
   User,
   Stock,
-  Transaction
+  Transaction,
+  Portfolio
 };

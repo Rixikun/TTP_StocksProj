@@ -10,12 +10,12 @@
    [] A user can only buy shares if they have enough cash in their account for a given purchase.
    [] A user can only buy shares if the ticker symbol is valid.
 
-4. [] As a user, I want to view a list of all transactions I’ve made to date (trades) so that I can perform an
-   audit.
+4. [x] As a user, I want to view a list of all transactions I’ve made to date (trades) so that I can perform an
+       audit.
 
-5. [] As a user, I want to view my portfolio (a list of all the stocks I own along with their current values) so that I can review performance.
-   [] Current values should be based on the latest price and quantity owned for a given stock.
-   [] Each stock owned should only appear once.
+5. [x] As a user, I want to view my portfolio (a list of all the stocks I own along with their current values) so that I can review performance.
+       [x] Current values should be based on the latest price and quantity owned for a given stock.
+       [x] Each stock owned should only appear once.
 
 6. [] As a user, I’d like to see the font color of stock symbols and current prices in my portfolio change
    dynamically to indicate performance.

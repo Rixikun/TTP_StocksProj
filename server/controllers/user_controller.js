@@ -1,6 +1,6 @@
 // api call functions here
 
-const { Stock, User, Transaction } = require("../db/models");
+const { Stock, User, Transaction, Portfolio } = require("../db/models");
 
 exports.getAllUsers = async (req, res, next) => {
   try {
@@ -24,24 +24,12 @@ exports.getUser = async (req, res, next) => {
   }
 };
 
-exports.getUserProfile = async (req, res, next) => {
+exports.getPortfolio = async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.userId);
-    const limited = {
-      email: user.email
-    };
-    res.json(limited);
-  } catch (err) {
-    next(err);
-  }
-};
-
-exports.editUserProfile = async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.params.userId);
-    user.email = req.body.email;
-    await user.save();
-    res.json(user);
+    const portfolio = await Portfolio.findAll({
+      where: { userId: req.params.userId }
+    });
+    res.json(portfolio);
   } catch (err) {
     next(err);
   }
