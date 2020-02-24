@@ -5,7 +5,7 @@ const user_control = require("../controllers/user_controller");
 
 module.exports = router;
 
-router.get("/", isUserMiddleware, user_control.getAllUsers);
+router.get("/", isAdminMiddleware, user_control.getAllUsers);
 
 router.get("/:userId", isUserMiddleware, user_control.getUser);
 

@@ -1,11 +1,11 @@
 // api call functions here
 
-const { Stock, User } = require("../db/models");
+const { Stock, User, Transaction } = require("../db/models");
 
 exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await User.findAll({
-      attributes: ["id", "email"]
+      attributes: ["id", "email", "name"]
     });
     res.json(users);
   } catch (err) {

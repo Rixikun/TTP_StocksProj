@@ -1,6 +1,6 @@
 // api call functions here
 
-const { Stock, User } = require("../db/models");
+const { Stock, User, Transaction } = require("../db/models");
 
 exports.getStocks = async (req, res, next) => {
   try {

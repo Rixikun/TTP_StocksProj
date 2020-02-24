@@ -1,5 +1,5 @@
 const db = require("../server/db");
-const { User, Stock } = require("../server/db/models");
+const { User, Stock, Transaction } = require("../server/db/models");
 
 async function seed() {
   await db.sync({ force: true });
@@ -19,16 +19,30 @@ async function seed() {
   ];
   const stocks = [
     {
-      name: "ABC",
-      price: 200
+      ticker: "ABC",
+      price: 200,
+      date: "2020-02-21 16:24:01.251-05"
     },
     {
-      name: "EFG",
-      price: 100
+      ticker: "EFG",
+      price: 100,
+      transactionId: 2,
+      userId: 2
     },
     {
-      name: "HIJ",
+      ticker: "HIJ",
       price: 300
+    },
+    {
+      ticker: "ABC",
+      price: 500,
+      date: "2020-02-22 16:24:01.251-05",
+      transactionId: 1,
+      userId: 1
+    },
+    {
+      ticker: "KLM",
+      price: 400
     }
   ];
 
@@ -37,14 +51,21 @@ async function seed() {
       return User.create(user);
     })
   );
+
   console.log(`seeded ${users.length} users`);
+
+  await Transaction.create({ userId: 1 });
+  await Transaction.create({ userId: 2 });
+
+  console.log(`seeded Transactions`);
+
   await Promise.all(
-    stocks.map(stock => {
-      return Stock.create(stock);
+    stocks.map(async (stock, idx) => {
+      await Stock.create(stock);
     })
   );
-  console.log(`seeded ${stocks.length} users`);
 
+  console.log(`seeded ${stocks.length} stocks`);
   console.log(`seeded successfully`);
 }
 
