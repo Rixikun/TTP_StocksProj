@@ -3,7 +3,7 @@ const db = require("../db");
 
 const Portfolio = db.define("portfolio", {
   totalPrice: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL(10, 2),
     defaultValue: 0
   },
   quantity: {
@@ -28,3 +28,7 @@ Portfolio:
 - Stock, CurrPrice, Quantity
 
 */
+
+//transaction total, portfolio total
+//stocks price <-- correct
+//user balance <-- correct

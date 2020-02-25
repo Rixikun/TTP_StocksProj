@@ -3,7 +3,8 @@ const db = require("../db");
 
 const Transaction = db.define("transaction", {
   totalPrice: {
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL(10, 2),
+    defaultValue: 0
   },
   quantity: {
     type: Sequelize.INTEGER

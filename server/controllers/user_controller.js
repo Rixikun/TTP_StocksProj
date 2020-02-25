@@ -13,17 +13,6 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
-exports.getUser = async (req, res, next) => {
-  try {
-    const singleUser = await User.findByPk(req.params.userId, {
-      include: [{ model: Stock }]
-    });
-    res.json(singleUser);
-  } catch (err) {
-    next(err);
-  }
-};
-
 exports.getPortfolio = async (req, res, next) => {
   try {
     const portfolio = await Portfolio.findAll({

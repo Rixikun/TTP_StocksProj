@@ -8,5 +8,3 @@ module.exports = router;
 router.get("/", isAdminMiddleware, user_control.getAllUsers);
 
 router.get("/portfolio/:userId", isUserMiddleware, user_control.getPortfolio);
-
-router.get("/:userId", isUserMiddleware, user_control.getUser);

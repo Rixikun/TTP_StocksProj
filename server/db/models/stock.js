@@ -13,10 +13,12 @@ const Stock = db.define("stock", {
     type: Sequelize.STRING
   },
   open: {
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL
   },
   price: {
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL(10, 4),
+
+    defaultValue: 0
   },
   date: {
     type: Sequelize.DATE
