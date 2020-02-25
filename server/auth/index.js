@@ -21,7 +21,11 @@ router.post("/login", async (req, res, next) => {
 
 router.post("/signup", async (req, res, next) => {
   try {
+    if (req.body.password !== req.body.pwcheck) {
+      return res.status(401).send("Please match password");
+    }
     const user = await User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     });

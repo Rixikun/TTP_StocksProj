@@ -1,11 +1,10 @@
 const isAdminMiddleware = (req, res, next) => {
-  console.log("inside admin middleware"); //admin doesn't exist yet
+  console.log("inside admin middleware");
   const currUser = req.user;
-  // console.log(">>>>>>>>>>>>>", req.user);
   if (currUser && currUser.isAdmin) {
     next();
   } else {
-    const error = new Error("you're not an admin");
+    const error = new Error("Admin access only");
     error.status = 401;
     next(error);
   }
@@ -21,13 +20,13 @@ const isUserMiddleware = (req, res, next) => {
       next();
     } else {
       console.log("not matching ids");
-      const error = new Error("doesn't look like anything to me");
+      const error = new Error("Unauthorized user");
       error.status = 401;
       next(error);
     }
   } else {
     console.log("not matching ids");
-    const error = new Error("doesn't look like anything to me");
+    const error = new Error("Please log in");
     error.status = 401;
     next(error);
   }

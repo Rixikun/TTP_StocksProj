@@ -23,3 +23,11 @@ exports.getPortfolio = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.postAccount = async (req, res, next) => {
+  try {
+    res.json("success");
+  } catch (err) {
+    next(err);
+  }
+};
