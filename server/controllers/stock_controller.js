@@ -75,6 +75,13 @@ const fromBigInt = x => {
 
 exports.postPurchase = async (req, res, next) => {
   try {
+    if (
+      req.body.quantity.toString().includes(".") ||
+      typeof req.body.quantity !== "number" ||
+      req.body.quantity < 1
+    ) {
+      return res.json("Enter whole number of stocks only");
+    }
     const symbol = req.body.symbol;
     const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apikeyAV}`;
     //get Balance & Price
