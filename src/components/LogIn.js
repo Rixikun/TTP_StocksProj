@@ -29,8 +29,8 @@ export default class NewStudentForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form onSubmit={this.handleSubmit} className="Form">
+        <label className="Label">
           Email:
           <input
             type="email"
@@ -40,7 +40,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label className="Label">
           Password:
           <input
             type="password"

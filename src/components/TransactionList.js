@@ -21,19 +21,18 @@ const TransactionList = props => {
   });
   const renderRows = () => {
     return stocks.map((stock, idx) => (
-      <tr key={idx}>
-        <td style={{ color: `${stock.color}` }}>
+      <tr className="RowName" key={idx}>
+        <td className="ColumnName" style={{ color: `${stock.color}` }}>
           {stock.ticker.toUpperCase()}
         </td>
-        <td>
+        <td className="ColumnName">
           {
             transactions.filter(
               el => stock.transactionId === el.transactionId
             )[0].quantity
           }{" "}
-          shares
         </td>
-        <td style={{ color: `${stock.color}` }}>
+        <td className="ColumnName" style={{ color: `${stock.color}` }}>
           ${stock.price.slice(0, stock.price.length - 2)}
           <span style={{ color: "gray" }}>
             {stock.price.slice(stock.price.length - 2, stock.price.length)}
@@ -45,13 +44,13 @@ const TransactionList = props => {
   };
   return (
     <div>
-      <h1>Transactions</h1>
+      <div className="TableName">Transactions</div>
       <table>
         <thead>
-          <tr id="transactionTHead">
-            <th>Ticker</th>
-            <th>Number of Shares</th>
-            <th>Price of Shares</th>
+          <tr className="RowName">
+            <th className="ColumnName">Ticker</th>
+            <th className="ColumnName"># of Shares</th>
+            <th className="ColumnName">Price</th>
           </tr>
         </thead>
         <tbody>{renderRows()}</tbody>

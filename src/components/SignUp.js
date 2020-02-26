@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles.css";
 
 export default class NewStudentForm extends Component {
   constructor(props) {
@@ -33,8 +34,8 @@ export default class NewStudentForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form onSubmit={this.handleSubmit} className="Form">
+        <label className="Label">
           Full Name:
           <input
             type="text"
@@ -44,7 +45,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label className="Label">
           Email:
           <input
             type="email"
@@ -54,7 +55,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label className="Label">
           Password:
           <input
             type="password"
@@ -64,7 +65,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label className="Label">
           Re-enter Password:
           <input
             type="password"

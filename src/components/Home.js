@@ -120,23 +120,30 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Home</h1>
-        <button onClick={this.handleTransaction}>View transactions</button>
-        {this.state.viewTransaction ? (
-          <TransactionList
-            stocks={this.state.stocks}
-            transactions={this.state.transactions}
-            todayStocks={this.state.todayStocks}
-          />
-        ) : null}
-        <button onClick={this.handlePortfolio}>View Portfolio</button>
-        {this.state.viewPortfolio ? (
-          <PortfolioList
-            portfolio={this.state.portfolio}
-            todayStocks={this.state.todayStocks}
-          />
-        ) : null}
-        <button onClick={this.handleToday}>View In Color</button>
+        <div className="HeaderHome">Home</div>
+        <div className="CenterButton">
+          {" "}
+          <button onClick={this.handleToday}>View In Color</button>
+        </div>
+        <div className="Home">
+          <button onClick={this.handleTransaction}>View transactions</button>
+          <button onClick={this.handlePortfolio}>View Portfolio</button>
+        </div>
+        <div className="TwoTables">
+          {this.state.viewTransaction ? (
+            <TransactionList
+              stocks={this.state.stocks}
+              transactions={this.state.transactions}
+              todayStocks={this.state.todayStocks}
+            />
+          ) : null}
+          {this.state.viewPortfolio ? (
+            <PortfolioList
+              portfolio={this.state.portfolio}
+              todayStocks={this.state.todayStocks}
+            />
+          ) : null}
+        </div>
       </div>
     );
   }

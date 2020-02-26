@@ -1,0 +1,132 @@
+button {
+  box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+  background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+  background-color: #79bbff;
+  border-radius: 6px;
+  border: 1px solid #84bbf3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color: #378de5;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.Main {
+  flex: 1;
+  align-items: center;
+  color: blue;
+  font-size: 20pt;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #b2dfee;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.Main:hover {
+  opacity: 1;
+}
+
+.Home {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: blue;
+  font-size: 20pt;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.HeaderHome {
+  flex: 1;
+  text-align: center;
+  color: blue;
+  font-size: 20pt;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.Form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: right;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Label {
+  display: flex;
+  padding: 5px;
+}
+
+.CenterButton {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.TableName {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.RowName {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  font-size: 16px;
+  color: black;
+  align-content: flex-start;
+  margin: 20px;
+  margin-left: 50%;
+  padding-left: 40%;
+  padding-right: 30%;
+}
+
+.ColumnName {
+  display: flex;
+  flex: 1;
+  align-content: flex-start;
+  justify-content: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+  background-color: #eed5b4;
+}
+
+.TwoTables {
+  display: flex;
+  flex: 1;
+  align-content: flex-start;
+  justify-content: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}

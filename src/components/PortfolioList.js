@@ -21,22 +21,26 @@ const PortfolioList = props => {
   });
   const renderRows = () => {
     return portfolio.map((port, idx) => (
-      <tr key={idx}>
-        <td style={{ color: `${port.color}` }}>{port.ticker.toUpperCase()}</td>
-        <td>{port.quantity} shares</td>
-        <td style={{ color: `${port.color}` }}>${port.totalPrice} USD</td>
+      <tr className="RowName" key={idx}>
+        <td className="ColumnName" style={{ color: `${port.color}` }}>
+          {port.ticker.toUpperCase()}
+        </td>
+        <td className="ColumnName">{port.quantity}</td>
+        <td className="ColumnName" style={{ color: `${port.color}` }}>
+          ${port.totalPrice} USD
+        </td>
       </tr>
     ));
   };
   return (
     <div>
-      <h1>Portfolio</h1>
+      <div className="TableName"> Portfolio</div>
       <table>
         <thead>
-          <tr id="transactionTHead">
-            <th>Ticker</th>
-            <th>Number of Shares</th>
-            <th>Total Price</th>
+          <tr className="RowName">
+            <th className="ColumnName">Ticker</th>
+            <th className="ColumnName"># of Shares</th>
+            <th className="ColumnName">Total Price</th>
           </tr>
         </thead>
         <tbody>{renderRows()}</tbody>

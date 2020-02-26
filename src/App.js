@@ -5,6 +5,9 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Home from "./components/Home";
 
+import "./App.css";
+import "./styles.css";
+
 // const config = {
 //   withCredentials: true,
 //   headers: {
@@ -18,10 +21,11 @@ export default class Main extends Component {
     this.state = {
       user: [],
       transactions: [],
-      userId: ""
+      userId: "",
+      viewAuth: false
     };
 
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.addUser = this.addUser.bind(this);
     this.verifyUser = this.verifyUser.bind(this);
   }
@@ -62,19 +66,25 @@ export default class Main extends Component {
     console.log("verifyUser triggered", this.state.user);
     console.log("the end");
   }
-  // handleClick(e) {
-  //   return this.setState({
-  //     showStudent: !this.state.showStudent
-  //   });
-  // }
+  handleClick(e) {
+    return this.setState({
+      viewAuth: !this.state.viewAuth
+    });
+  }
 
   render() {
     // console.log("this is the state in main", this.state);
     return (
-      <div className="App">
-        <h1>Sign Up / Log In</h1>
-        <SignUp addUser={this.addUser} />
-        <LogIn verifyUser={this.verifyUser} />
+      <div>
+        <div className="Main" onClick={this.handleClick}>
+          Sign Up / Log In
+        </div>{" "}
+        {this.state.viewAuth ? (
+          <div>
+            <SignUp addUser={this.addUser} />
+            <LogIn verifyUser={this.verifyUser} />
+          </div>
+        ) : null}
         <Home userId={this.state.userId} />
       </div>
     );
