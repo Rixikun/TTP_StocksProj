@@ -19,19 +19,12 @@ export default class Main extends Component {
       user: [],
       transactions: [],
       userId: ""
-      // showStudent: false
     };
 
-    // this.selectStudent = this.selectStudent.bind(this);
     // this.handleClick = this.handleClick.bind(this);
     this.addUser = this.addUser.bind(this);
     this.verifyUser = this.verifyUser.bind(this);
-    // this.getTransactions = this.getTransactions.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.getTransactions();
-  // }
 
   async addUser(newUser) {
     // console.log("newuser", newUser);
@@ -69,12 +62,6 @@ export default class Main extends Component {
     console.log("verifyUser triggered", this.state.user);
     console.log("the end");
   }
-  // selectStudent(student) {
-  //   return this.setState({
-  //     selectedStudent: student
-  //   });
-  // }
-
   // handleClick(e) {
   //   return this.setState({
   //     showStudent: !this.state.showStudent

@@ -19,7 +19,6 @@ const PortfolioList = props => {
       }
     }
   });
-  console.log("color???", todayStocks);
   const renderRows = () => {
     return portfolio.map((port, idx) => (
       <tr key={idx}>

@@ -15,7 +15,6 @@ export default class Home extends Component {
       portfolio: [],
       todayStocks: []
     };
-    // this.handleChange = this.handleChange.bind(this);
     this.handleTransaction = this.handleTransaction.bind(this);
     this.handlePortfolio = this.handlePortfolio.bind(this);
     this.handleToday = this.handleToday.bind(this);
@@ -71,7 +70,7 @@ export default class Home extends Component {
         const { data } = await axios.get(
           `http://localhost:8080/routes/stocks/select?symbol=${ticker}`
         );
-        console.log("data", data);
+        // console.log("data", data);
         let symbol = data["01. symbol"];
         let open = data["02. open"];
         let currPrice = data["05. price"];
@@ -79,10 +78,7 @@ export default class Home extends Component {
           ...this.state,
           todayStocks: [...this.state.todayStocks, { symbol, open, currPrice }]
         });
-        // console.log("today", this.state.todayStocks);
       });
-
-      // console.log("today", this.state.todayStocks);
     } catch (err) {
       console.error(err);
     }
@@ -90,8 +86,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.getTodayStock();
-    // this.getTransactions();
-    // this.getPortfolio();
   }
 
   handleTransaction(event) {
@@ -108,8 +102,6 @@ export default class Home extends Component {
     });
   }
   handlePortfolio(event) {
-    console.log("portf", this.state);
-
     if (this.props.userId > 0 && !this.state.portfolio.length) {
       event.preventDefault();
       this.getPortfolio();
@@ -121,12 +113,8 @@ export default class Home extends Component {
   }
 
   handleToday(event) {
-    console.log("open", this.state);
-    // if (!this.state.todayStocks.length) {
-    console.log("open pls");
     event.preventDefault();
     this.getTodayStock();
-    // }
   }
 
   render() {
