@@ -1,4 +1,5 @@
 button {
+  width: 30%;
   box-shadow: inset 0px 1px 0px 0px #bbdaf7;
   background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
   background-color: #79bbff;
@@ -21,6 +22,11 @@ button {
 .myButton:active {
   position: relative;
   top: 1px;
+}
+
+.Auth {
+  display: flex;
+  justify-content: center;
 }
 
 .Main {
@@ -64,9 +70,7 @@ button {
 }
 
 .Form {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  width: 45%;
   align-items: right;
   padding: 10px;
   padding-left: 20px;

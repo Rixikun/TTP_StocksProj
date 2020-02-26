@@ -7,6 +7,8 @@ module.exports = router;
 
 router.get("/", isAdminMiddleware, user_control.getAllUsers);
 
+router.get("/:userId", user_control.getUser);
+
 router.get(
   "/portfolio/:userId",
   // isUserMiddleware,

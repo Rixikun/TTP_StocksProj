@@ -80,7 +80,7 @@ export default class Main extends Component {
           Sign Up / Log In
         </div>{" "}
         {this.state.viewAuth ? (
-          <div>
+          <div className="Auth">
             <SignUp addUser={this.addUser} />
             <LogIn verifyUser={this.verifyUser} />
           </div>
