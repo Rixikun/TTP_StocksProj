@@ -5,12 +5,12 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Home from "./components/Home";
 
-const config = {
-  withCredentials: true,
-  headers: {
-    "Content-Type": "application/json"
-  }
-};
+// const config = {
+//   withCredentials: true,
+//   headers: {
+//     "Content-Type": "application/json"
+//   }
+// };
 
 export default class Main extends Component {
   constructor(props) {

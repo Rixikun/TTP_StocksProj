@@ -66,7 +66,7 @@ export default class Home extends Component {
       const userTickers = this.state.portfolio.map(stock =>
         stock.ticker.toUpperCase()
       );
-      const openPrices = userTickers.map(async ticker => {
+      userTickers.map(async ticker => {
         const { data } = await axios.get(
           `http://localhost:8080/routes/stocks/select?symbol=${ticker}`
         );

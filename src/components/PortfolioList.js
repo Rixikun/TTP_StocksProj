@@ -3,7 +3,7 @@ import React from "react";
 const PortfolioList = props => {
   // console.log("p", props);
   const { portfolio, todayStocks } = props;
-  todayStocks.map(e => {
+  todayStocks.forEach(e => {
     for (let i = 0; i < portfolio.length; i++) {
       if (portfolio[i].ticker.toUpperCase() === e.symbol) {
         const stockColor = () => {
