@@ -10,12 +10,14 @@ const sessionStore = new SequelizeStore({ db });
 const PORT = process.env.PORT || 8080;
 const app = express();
 const socketio = require("socket.io");
+const cors = require("cors");
 module.exports = app;
 
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser(async (id, done) => {
   try {
+    console.log("deserialize");
     const user = await db.models.user.findByPk(id);
     done(null, user);
   } catch (err) {
@@ -34,13 +36,21 @@ const createApp = () => {
   // compression middleware
   app.use(compression());
 
+  //cors
+  app.use(
+    cors({
+      methods: ["GET", "POST"],
+      credentials: true
+    })
+  );
+
   // session middleware with passport
   app.use(
     session({
       secret: process.env.SESSION_SECRET || "my best friend is Cody",
       store: sessionStore,
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: true
     })
   );
   app.use(passport.initialize());

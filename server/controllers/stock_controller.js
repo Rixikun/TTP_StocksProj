@@ -6,7 +6,11 @@ const fetch = require("node-fetch");
 
 exports.getStocks = async (req, res, next) => {
   try {
-    const stocks = await Stock.findAll();
+    const stocks = await Stock.findAll({
+      where: {
+        userId: req.params.userId
+      }
+    });
     res.json(stocks);
   } catch (err) {
     next(err);

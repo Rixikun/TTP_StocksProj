@@ -1,26 +1,95 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. <br></br>Hello
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
+import Home from "./components/Home";
+
+const config = {
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json"
+  }
+};
+
+export default class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: [],
+      transactions: [],
+      userId: ""
+      // showStudent: false
+    };
+
+    // this.selectStudent = this.selectStudent.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
+    this.addUser = this.addUser.bind(this);
+    this.verifyUser = this.verifyUser.bind(this);
+    // this.getTransactions = this.getTransactions.bind(this);
+  }
+
+  // componentDidMount() {
+  //   this.getTransactions();
+  // }
+
+  async addUser(newUser) {
+    // console.log("newuser", newUser);
+    const response = await axios.post(
+      "http://localhost:8080/auth/signup",
+      newUser
+    );
+    const userId = response.data.id;
+    this.setState({
+      ...this.state,
+      user: [response],
+      userId: userId
+    });
+  }
+  async verifyUser(userInput) {
+    // console.log("userInput", userInput);
+    const response = await axios.post(
+      "http://localhost:8080/auth/login",
+
+      {
+        ...userInput
+      },
+      {
+        credentials: "include"
+      }
+      // config
+    );
+    const userId = response.data.id;
+
+    this.setState({
+      ...this.state,
+      user: [response.data],
+      userId: userId
+    });
+    console.log("verifyUser triggered", this.state.user);
+    console.log("the end");
+  }
+  // selectStudent(student) {
+  //   return this.setState({
+  //     selectedStudent: student
+  //   });
+  // }
+
+  // handleClick(e) {
+  //   return this.setState({
+  //     showStudent: !this.state.showStudent
+  //   });
+  // }
+
+  render() {
+    // console.log("this is the state in main", this.state);
+    return (
+      <div className="App">
+        <h1>Sign Up / Log In</h1>
+        <SignUp addUser={this.addUser} />
+        <LogIn verifyUser={this.verifyUser} />
+        <Home userId={this.state.userId} />
+      </div>
+    );
+  }
 }
-
-export default App;

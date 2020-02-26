@@ -10,6 +10,6 @@ router.get("/", isAdminMiddleware, transaction_control.getAllTransactions);
 
 router.get(
   "/view/:userId",
-  isUserMiddleware,
+  // isUserMiddleware,
   transaction_control.getUserTransactions
 );

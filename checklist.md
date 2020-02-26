@@ -17,8 +17,8 @@
        [x] Current values should be based on the latest price and quantity owned for a given stock.
        [x] Each stock owned should only appear once.
 
-6. [] As a user, I’d like to see the font color of stock symbols and current prices in my portfolio change
-   dynamically to indicate performance.
-   [] Display red when the current price is less than the day’s open price.
-   [] Display grey when the current price is equal to the day’s open price.
-   [] Display green when the current price is greater than the day’s open price.
+6. [x] As a user, I’d like to see the font color of stock symbols and current prices in my portfolio change
+       dynamically to indicate performance.
+       [x] Display red when the current price is less than the day’s open price.
+       [x] Display grey when the current price is equal to the day’s open price.
+       [x] Display green when the current price is greater than the day’s open price.
