@@ -37,6 +37,7 @@ export default class BuyStock extends Component {
             name="symbol"
             onChange={this.handleChange}
             value={this.state.symbol || ""}
+            className="Input"
           />
         </label>
         <label className="Label">
@@ -46,10 +47,12 @@ export default class BuyStock extends Component {
             name="quantity"
             onChange={this.handleChange}
             value={this.state.quantity || ""}
+            className="Input"
           />
         </label>
-
-        <button type="submit">BUY</button>
+        <div className="Buy">
+          <button type="submit">BUY</button>
+        </div>
       </form>
     );
   }

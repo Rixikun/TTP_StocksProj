@@ -5,9 +5,6 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Home from "./components/Home";
 
-import "./App.css";
-import "./styles.css";
-
 // const config = {
 //   withCredentials: true,
 //   headers: {
@@ -74,18 +71,34 @@ export default class Main extends Component {
 
   render() {
     // console.log("this is the state in main", this.state);
+    const auth = () => {
+      if (!this.state.user.length) {
+        return (
+          <div>
+            <div className="Main" onClick={this.handleClick}>
+              Sign Up / Log In
+            </div>{" "}
+            <div>
+              {this.state.viewAuth ? (
+                <div className="Auth">
+                  <SignUp addUser={this.addUser} />
+                  <LogIn verifyUser={this.verifyUser} />
+                </div>
+              ) : null}
+            </div>
+          </div>
+        );
+      } else {
+        return null;
+      }
+    };
+    //
     return (
       <div>
-        <div className="Main" onClick={this.handleClick}>
-          Sign Up / Log In
-        </div>{" "}
-        {this.state.viewAuth ? (
-          <div className="Auth">
-            <SignUp addUser={this.addUser} />
-            <LogIn verifyUser={this.verifyUser} />
-          </div>
-        ) : null}
-        <Home userId={this.state.userId} />
+        {auth()}
+        <div>
+          {this.state.user.length ? <Home userId={this.state.userId} /> : null}
+        </div>
       </div>
     );
   }

@@ -37,6 +37,7 @@ export default class NewStudentForm extends Component {
             name="email"
             onChange={this.handleChange}
             value={this.state.email || ""}
+            className="Input"
           />
         </label>
 
@@ -47,6 +48,7 @@ export default class NewStudentForm extends Component {
             name="password"
             onChange={this.handleChange}
             value={this.state.password || ""}
+            className="Input"
           />
         </label>
 

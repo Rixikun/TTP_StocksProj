@@ -4,7 +4,7 @@ import TransactionList from "./TransactionList";
 import PortfolioList from "./PortfolioList";
 import BuyStock from "./BuyStock";
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -162,21 +162,23 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <div className="HeaderHome">View balance</div>
-        <div className="HeaderHome">{this.state.balance}</div>
-        <div className="CenterButton">
-          {" "}
-          <button onClick={this.handleGetBalance}>Refresh</button>
+        <div className="Balance">
+          <div className="HeaderHome">View balance</div>
+          <div className="ViewBalance">${this.state.balance} USD</div>
+          <div className="CenterButton">
+            {" "}
+            <button onClick={this.handleGetBalance}>Refresh</button>
+          </div>
         </div>
-        <div>
+        <div className="Stock">
           <BuyStock buyStock={this.buyStock} />
         </div>
         <div className="CenterButton">
           {" "}
-          <button onClick={this.handleToday}>View In Color</button>
+          <button onClick={this.handleToday} className="LowOpacity">View In Color</button>
         </div>
         <div className="Home">
-          <button onClick={this.handleTransaction}>View transactions</button>
+          <button onClick={this.handleTransaction}>View Transactions</button>
           <button onClick={this.handlePortfolio}>View Portfolio</button>
         </div>
         <div className="TwoTables">
@@ -198,3 +200,6 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;
+// module.exports = Home;
