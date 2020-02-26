@@ -3,7 +3,7 @@ button {
   box-shadow: inset 0px 1px 0px 0px #bbdaf7;
   background: linear-gradient(to bottom, #b2dfee 5%, #378de5 100%);
   background-color: #79bbff;
-  border-radius: 6px;
+  border-radius: 20px;
   border: 1px solid #84bbf3;
   display: inline-block;
   cursor: pointer;
@@ -49,16 +49,19 @@ button {
 
 .Main {
   flex: 1;
-  align-items: center;
+  text-align: center;
+  justify-content: center;
   color: blue;
   font-size: 20pt;
   font-weight: bold;
+  margin-left: 25%;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
   background-color: #b2dfee;
-  opacity: 0.5;
-  border-radius: 10px;
+  opacity: 0.7;
+  border-radius: 30px;
+  width: 50%;
   cursor: pointer;
 }
 .Main:hover {
@@ -72,7 +75,7 @@ button {
   align-items: center;
   color: blue;
   font-size: 20pt;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 20px;
   padding: 10px;
   justify-content: space-around;
@@ -90,9 +93,7 @@ button {
 .Form {
   width: 45%;
   align-items: right;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .Label {
@@ -126,16 +127,24 @@ button {
 }
 
 .TableName {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  flex: 1; */
+  justify-content: center;
   align-content: center;
   text-align: center;
   font-size: 18px;
   color: black;
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-left: 25%;
-  margin-right: 25%;
+  height: 10%;
+  /* margin-left: 25%;
+  margin-right: 25%; */
+}
+
+.TableData {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
 }
 
 .RowName {
@@ -145,10 +154,10 @@ button {
   font-size: 16px;
   color: black;
   align-content: flex-start;
-  margin: 20px;
+  /* margin: 20px;
   margin-left: 50%;
   padding-left: 40%;
-  padding-right: 30%;
+  padding-right: 30%; */
 }
 
 .ColumnName {
@@ -156,8 +165,7 @@ button {
   flex: 1;
   align-content: flex-start;
   justify-content: left;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 10px;
   text-align: left;
   background-color: #eed5b4;
 }
@@ -165,10 +173,25 @@ button {
 .TwoTables {
   display: flex;
   flex: 1;
-  align-content: flex-start;
-  justify-content: left;
-  padding-left: 20px;
-  padding-right: 20px;
+  align-content: center;
+  justify-content: center;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+}
+
+.OneTable {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.StocksTable {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
 .Stock {

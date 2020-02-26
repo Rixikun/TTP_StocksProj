@@ -33,18 +33,19 @@ const PortfolioList = props => {
     ));
   };
   return (
-    <div>
-      <div className="TableName"> Portfolio</div>
-      <table>
-        <thead>
-          <tr className="RowName">
-            <th className="ColumnName">Ticker</th>
-            <th className="ColumnName"># of Shares</th>
-            <th className="ColumnName">Total Price</th>
-          </tr>
-        </thead>
-        <tbody>{renderRows()}</tbody>
-      </table>
+    <div className="StocksTable">
+      <div className="TableData">
+        <table className="OneTable">
+          <thead>
+            <tr className="RowName">
+              <th className="ColumnName">Ticker</th>
+              <th className="ColumnName"># of Shares</th>
+              <th className="ColumnName">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>{renderRows()}</tbody>
+        </table>
+      </div>
     </div>
   );
 };
